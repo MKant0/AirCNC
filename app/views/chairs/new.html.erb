@@ -1,0 +1,7 @@
+<div class="container w-50 shadow bg-white mt-5 p-3">
+  <%= simple_form_for @chair do |f| %>
+    <%= f.input :name, class:"form-control" %>
+    <%#= f.input :image_url, class:"form-control" %>
+    <%= f.submit "Create publication", class:"btn btn-primary mb-4" %>
+  <% end %>
+</div>

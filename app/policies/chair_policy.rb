@@ -4,6 +4,7 @@ class ChairPolicy < ApplicationPolicy
     def resolve
       scope.all
     end
+  end
 
     def show?
       true
@@ -20,5 +21,4 @@ class ChairPolicy < ApplicationPolicy
     def destroy?
       record.user == user
     end
-  end
 end
