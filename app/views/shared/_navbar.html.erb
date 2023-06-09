@@ -28,8 +28,9 @@
             </div>
           </li>
         <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link btn btn-link text-decoration-none" %>
+          <li class="nav-item d-flex space-between m-1 p-3">
+            <%= link_to "New post", "poner path de creacion de publicacion", class: "nav-link btn btn-light"%>
+            <%= link_to "Login", new_user_session_path, class: "nav-link btn btn-light" %>
           </li>
         <% end %>
       </ul>
