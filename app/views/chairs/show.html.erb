@@ -1,6 +1,11 @@
 <div class="bannertwo">
   <div class="container">
     <h1><%= @chair.name %></h1>
+    <h2>$<%= @chair.price %></h2>
+    <h3>Rating: <%= @chair.rating %></h3>
+    <p><%= @chair.description %></p>
+    <p>This chair belongs to:<%= @chair.user.email %></p>
+
     <p>You find your perfect chair!</p>
 
   </div>
