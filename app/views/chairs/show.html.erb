@@ -4,11 +4,12 @@
     <h2>$<%= @chair.price %></h2>
     <h3>Rating: <%= @chair.rating %></h3>
     <p><%= @chair.description %></p>
+    <p><%= @chair.address %></p>
     <p>This chair belongs to: <%= @chair.user.email %></p>
     <%= link_to "Rent this chair!", "#", class:"btn btn-primary" %>
 
   </div>
 </div>
 
- <%# Este codigo es para cuando tengamos fotos %>
- <%#= cl_image_tag @list.photo.key %>
+<%# Este codigo es para cuando tengamos fotos %>
+<%#= cl_image_tag @list.photo.key %>
