@@ -1,11 +1,11 @@
 <div class="bgcolor">
   <div class="container w-50 shadow bg-white mt-5 p-3">
     <%= simple_form_for @chair do |f| %>
-      <%= f.input :name, label:"Nombre de la silla", class:"form-control", input_html: { maxlength: 20 } %>
-      <%= f.input :description, as: :text, label:"Detalles", input_html: { maxlength: 300 } %>
-      <%= f.input :name, label:"Ubicacion", class:"form-control" %>
-      <%= f.input :name, label:"Precio x dia", class:"form-control" %>
-      <%= f.input :photos, as: :file, label:"Fotos", input_html: { multiple: true } %>
+      <%= f.input :name, label:"Chair name", class:"form-control", input_html: { maxlength: 20 } %>
+      <%= f.input :description, as: :text, label:"Details", input_html: { maxlength: 300 } %>
+      <%= f.input :name, label:"Address", class:"form-control" %>
+      <%= f.input :name, label:"Price per Day", class:"form-control" %>
+      <%= f.input :photos, as: :file, label:"Photos", input_html: { multiple: true } %>
       <%#= f.input :image_url, class:"form-control" %>
       <%= f.submit "Post your chair!", class:"btn btn-success mb-4 sm" %>
     <% end %>
