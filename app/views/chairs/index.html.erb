@@ -15,12 +15,11 @@
   </div>
   <div class="row">
     <% @chairs.each do |chair| %>
-      <div class="col-4 mb-3">
-
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path "@SillaGamer01" %>)">
-          <%= chair.name %>
-        </div>
-      </div>
+<div class="col-4 mb-3">
+  <div class="card-category" style="background-image: url('<%= chair.url_image.present? ? cl_image_path(chair.url_image, :transformation => {:width => 300, :crop => "scale"}) : cl_image_path("aarnio_originals_ballchair_orange_03_1200x_tddq6l.jpg", :transformation => {:width => 300, :crop => "scale"}) %>'); background-size: contain; background-position: center; background-repeat: no-repeat; height: 200px;">
+    <span style="position: absolute; top: 10px; right: 10px; background-color: rgba(255, 255, 255, 0.5); padding: 5px;"><%= chair.name %></span>
+  </div>
+</div>
     <% end %>
   </div>
 </div>

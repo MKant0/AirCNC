@@ -37,5 +37,3 @@ cloudinary:
 #   primary: local
 #   mirrors: [ amazon, google, microsoft ]
 
-#Cloudinary
-
