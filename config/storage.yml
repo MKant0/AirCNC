@@ -38,6 +38,4 @@ cloudinary:
 #   mirrors: [ amazon, google, microsoft ]
 
 #Cloudinary
-cloudinary:
-service: Cloudinary
-folder: <%= Rails.env %>
+

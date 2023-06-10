@@ -1,9 +1,9 @@
 <div class="bannertwo">
   <div class="container w-50 shadow bg-white mt-5 p-3">
     <h1><%= @chair.name %></h1>
-    <h2>$<%= @chair.price %></h2>
-    <% @chair.photos.each do |chair|%>
-      <%= cl_image_tag @chair.photo.key, height: 300, width: 400, crop: :fill %>
+    <%= number_to_currency(@chair.price, unit: "$", separator: ".")  %>
+    <% @chair.photos.each do |photo|%>
+      <p><%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %></p>
       <% end %>
     <h3>Rating: <%= @chair.rating %></h3>
     <p><%= @chair.description %></p>
