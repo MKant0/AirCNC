@@ -3,8 +3,6 @@
     <h1>Welcome to AirCnC</h1>
     <p>Rent chairs for any occasion!</p>
 
-    <%= link_to 'Browse Chairs', chairs_path, class: 'btn btn-info mb-3' %>
-
     <div class="search-bar p-3">
       <%= simple_form_for :search, url: chairs_path, method: :get, html: { class: 'form-inline' } do |f| %>
         <%= f.input :query, label: false, input_html: { placeholder: 'Search for chairs...', class: 'form-control' } %>
@@ -20,5 +18,60 @@
       <p>Join us and start renting chairs today!</p>
       <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-primary' %>
     <% end %>
+
+    <div class="container mt-4">
+      <div class="row">
+        <div class="col-12">
+          <h4>Chairs</h4>
+        </div>
+      </div>
+
+      <% if @chairs.any? %>
+        <div class="row">
+          <div class="col-4 mb-3">
+            <div class="card">
+              <%= cl_image_tag(@chairs.first.url_image, class: 'card-img-top') if @chairs.first.url_image.present? %>
+              <div class="card-body">
+                <h5 class="card-title"><%= @chairs.first.name %></h5>
+                <p class="card-text">Price: <%= @chairs.first.price %></p>
+                <%= link_to 'View Details', chair_path(@chairs.first), class: 'btn btn-primary' %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="more-chairs" style="display: none;">
+          <% @chairs.drop(1).each do |chair| %>
+            <div class="col-4 mb-3">
+              <div class="card">
+                <%= cl_image_tag(chair.url_image, class: 'card-img-top') if chair.url_image.present? %>
+                <div class="card-body">
+                  <h5 class="card-title"><%= chair.name %></h5>
+                  <p class="card-text">Price: <%= chair.price %></p>
+                  <%= link_to 'View Details', chair_path(chair), class: 'btn btn-primary' %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+
+        <div class="text-center mt-3">
+          <button id="show-more" class="btn btn-primary">Show more</button>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
+
+<script>
+  document.getElementById("show-more").addEventListener("click", function() {
+    var moreChairs = document.querySelector(".more-chairs");
+    if (moreChairs.style.display === "none") {
+      moreChairs.style.display = "block";
+      this.innerHTML = "Show less";
+    } else {
+      moreChairs.style.display = "none";
+      this.innerHTML = "Show more";
+    }
+  });
+</script>
