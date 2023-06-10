@@ -7,19 +7,20 @@ class BookingsController < ApplicationController
   end
 
   def show
-    autorize @booking
+    authorize @booking
   end
 
   def new
     @booking = Booking.new
-    autorize @booking
+    authorize @chair
+    authorize @booking
   end
 
   def create
     @booking = Booking.new(booking_params)
     @booking.chair = @chair
     @booking.user = current_user
-    autorize @booking
+    authorize @booking
     if @booking.save
       redirect_to booking_path(@booking)
     else
@@ -28,11 +29,11 @@ class BookingsController < ApplicationController
   end
 
   def edit
-    autorize @booking
+    authorize @booking
   end
 
   def update
-    autorize @booking
+    authorize @booking
     if @booking.update(booking_params)
       redirect_to booking_path(@booking)
     else
@@ -41,21 +42,21 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-    autorize @booking
+    authorize @booking
     @booking.destroy
     redirect_to bookings_path, status: :see_other
   end
 
   private
 
+  def set_booking
+    @booking = Booking.find(params[:id])
+  end
+
   def booking_params
     params.require(:booking).permit(:date_start, :date_end)
   end
 
-  def set_booking
-    @booking = Booking.find(params[:id])
-  end
-# al ser la ruta nesteada con chair, usamos el chair_id para encontrar la silla
   def set_chair
     @chair = Chair.find(params[:chair_id])
   end
