@@ -1,0 +1,22 @@
+<div class="bg-color">
+  <div class="container shadow p-3 w-75 card-color text-center">
+    <h1>Welcome to AirCnC</h1>
+    <p>Rent chairs for any occasion!</p>
+
+    <div class="search-bar p-3">
+      <%= simple_form_for :search, url: chairs_path, method: :get, html: { class: 'form-inline' } do |f| %>
+        <%= f.input :query, label: false, input_html: { placeholder: 'Search for chairs...', class: 'form-control' } %>
+        <%= f.button :submit, 'Search', class: 'btn btn-success ml-2' %>
+      <% end %>
+    </div>
+
+    <% if user_signed_in? %>
+      <p>Welcome, <%= current_user.email %>!</p>
+      <%= link_to 'My Bookings', bookings_path, class: 'btn btn-primary' %>
+      <%= link_to 'List a Chair', new_chair_path, class: 'btn btn-secondary' %>
+    <% else %>
+      <p>Join us and start renting chairs today!</p>
+      <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>
