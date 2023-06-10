@@ -8,6 +8,7 @@ class BookingsController < ApplicationController
 
   def show
     authorize @booking
+    @chair = @booking.chair
   end
 
   def new
@@ -20,6 +21,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.chair = @chair
     @booking.user = current_user
+    authorize @chair
     authorize @booking
     if @booking.save
       redirect_to booking_path(@booking)
