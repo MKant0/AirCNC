@@ -4,7 +4,7 @@
       <%= f.input :date_start, label:"Start date", class:"form-control", html5: true %>
       <%= f.input :date_end, label:"End date", class:"form-control", html5: true %>
       <%#= f.input :image_url, class:"form-control" %>
-      <%= f.submit "Reserve this chair!", class:"btn btn-success mb-4 sm" %>
+      <%= f.submit "Reserve this chair!", booking_path,class:"btn btn-success mb-4 sm" %>
     <% end %>
   </div>
 </div>
