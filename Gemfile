@@ -77,3 +77,7 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+#cloudinary
+
+gem "cloudinary", "~> 1.16.0"
