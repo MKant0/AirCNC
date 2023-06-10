@@ -7,6 +7,7 @@
       <% end %>
     <h3>Rating: <%= @chair.rating %></h3>
     <p><%= @chair.description %></p>
+    <p><%= @chair.address %></p>
     <p>This chair belongs to: <%= @chair.user.email %></p>
     <%# nececitamos ruta de bookings new para que el boton de abajo funcione %>
     <%= link_to "Rent this chair!", "#", class:"btn btn-primary" %>
