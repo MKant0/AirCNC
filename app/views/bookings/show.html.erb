@@ -1,14 +1,17 @@
 <div class="bgcolor">
   <div class="container w-50 shadow bg-white mt-5 p-3">
-    <%= simple_form_for [@chair, @booking] do |f| %>
-      <%= @chair.photos each do |photo|%>
-        <%= cl_image_tag photo.key, height: 300, width: 400, crop: fill %>
-      <% end %>
-      <%= f.input @current.name, class:"form-control" %>
-      <%= f.input @current.user, class:"form-control" %>
-      <%= f.input @current.description, class:"form-control" %>
-      <%#= f.input :image_url, class:"form-control" %>
-      <%= f.submit "Download the recipe", class:"btn btn-success mb-4 sm" %>
-    <% end %>
-  </div>
+  <h1>Your Chair is Confirmed!</h1>
+
+  <p>Your booking starts on: <%= @booking.date_start %></p>
+  <p>And it ends on: <%= @booking.date_end %></p>
+
+  <h4>Information on your chair:</h4>
+  <% @booking.chair.photos.each do |photo| %>
+    <p><%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill%></p>
+  <% end %>
+  <p><%= @booking.chair.name %></p>
+  <p>$<%= @booking.chair.price %></p>
+  <p><%= @booking.chair.description %></p>
+  <p>Your chair is located at <%= @booking.chair.address %></p>
+
 </div>
