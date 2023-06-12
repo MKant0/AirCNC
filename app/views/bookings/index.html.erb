@@ -1,6 +1,11 @@
 <div class="banner">
   <div class="container">
-    <h1>Rent the perfect chair here!</h1>
+    <h1>Here are your upcoming bookings</h1>
+    <% @bookings.each do |booking| %>
+      <h2><%= link_to booking.chair.name, booking_path(booking) %></h2>
+      <p>Start Date: <%= booking.date_start %></p>
+      <p>End Date: <%= booking.date_end %></p>
+      <p>Your chair is located at: <%= booking.chair.address %></p>
+      <% end %>
   </div>
 </div>
-
