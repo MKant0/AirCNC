@@ -6,4 +6,7 @@ class User < ApplicationRecord
   # Referneces
   has_many :chairs, dependent: :destroy
   has_many :bookings, dependent: :destroy
+
+  # cloudinary photos
+  has_one_attached :photo
 end
