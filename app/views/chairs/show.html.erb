@@ -9,8 +9,16 @@
     <p><%= @chair.description %></p>
     <p><%= @chair.address %></p>
     <p>This chair belongs to: <%= @chair.user.email %></p>
-    <%# nececitamos ruta de bookings new para que el boton de abajo funcione %>
-    <%= link_to "Rent this chair!", new_chair_booking_path(@chair), class:"btn btn-primary" %>
+    <% if current_user != @chair.user %>
+      <%= link_to "Rent this chair!", new_chair_booking_path(@chair), class:"btn btn-primary" %>
+    <% end %>
+    <div class="d-flex flex-row">
+      <% if current_user == @chair.user %>
+        <p>Make Changes to your Chair Listing</p>
+        <div class="p-2"><%= link_to "Edit Chair", edit_chair_path(@chair), class:"btn btn-primary" %></div>
+        <div class="p-2"><%= button_to "Delete Chair", @chair, method: :delete, class:"btn btn-danger text-white " %></div>
+      <% end %>
+    </div>
 
   </div>
 </div>
