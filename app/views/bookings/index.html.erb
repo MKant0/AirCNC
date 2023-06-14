@@ -3,7 +3,7 @@
 
     <div class="container">
         <h1>Here are your upcoming bookings</h1>
-        <% @bookings.each do |booking| %>
+        <% current_user.bookings.each do |booking| %>
             <h2><%= link_to booking.chair.name, booking_path(booking) %></h2>
             <p>Start Date: <%= booking.date_start %></p>
             <p>End Date: <%= booking.date_end %></p>
