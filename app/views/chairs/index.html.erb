@@ -4,31 +4,35 @@
   </div>
 </div>
 
-<div class="container mt-4">
-  <div class="row">
-    <div class="col-12">
-      <h4>Choose a chair</h4>
-      <%= link_to "Post your chair", new_chair_path, class:"btn btn-success btn-sm float-right" %>
-    </div>
-  </div>
-  <% @chairs.each do |chair| %>
-    <div class="row mt-4">
-      <div class="col-12">
-        <div class="card">
-          <div class="card-body">
-            <div class="row">
-              <div class="col-md-4">
-                <div style="background-image: url('<%= chair.url_image.present? ? cl_image_path(chair.url_image, :transformation => {:width => 300, :crop => "scale"}) : cl_image_path("aarnio_originals_ballchair_orange_03_1200x_tddq6l.jpg", :transformation => {:width => 300, :crop => "scale"}) %>'); background-size: contain; background-position: center; background-repeat: no-repeat; height: 200px;"></div>
+      <!-- ui kit template -->
+        <div class="cards-container">
+          <% current_user.chairs.each do  |chair| %>
+            <%= link_to chair_path(chair) do %>
+              <div class="card-chair">
+                <% chair.photos.each do |photo|%>
+                  <%= cl_image_tag photo.key, crop: :fill %>
+                <% end %>
+                <div class="card-chair-infos">
+                  <div>
+                    <h2 class="card-title"><%= chair.name %></h2>
+                  </div>
+                  <h2 class="card-chair-pricing">$<%= chair.price %></h2>
+                  <% if user_signed_in? %>
+                    <% if current_user.photo.attached? %>
+                      <%= image_tag current_user.photo, class: "avatar card-chair-user avatar-bordered" %>
+                    <% else %>
+                      <%= image_tag "avatar_chair.jpg", class: "avatar" %>
+                    <% end %>
+                  <% end %>
+                </div>
               </div>
-              <div class="col-md-8">
-                <h5><%= chair.name %></h5>
-              </div>
-            </div>
-          </div>
+            <% end %>
+          <% end %>
         </div>
-      </div>
+        <div class="text-center mt-3">
+          <button id="show-more" class="btn btn-success">Show more</button>
+        </div>
     </div>
-  <% end %>
 </div>
 
 <button onclick="window.history.back();" style="position: fixed; bottom: 20px; left: 20px; background-color: #4CAF50; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer; border-radius: 50px;">Go Back</button>
