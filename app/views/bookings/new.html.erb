@@ -1,10 +1,18 @@
 <div class="bgcolor">
-  <div class="container w-50 shadow bg-white mt-5 p-3">
-    <%= simple_form_for [@chair, @booking], url: chair_bookings_path(@chair) do |f| %>
-      <%= f.input :date_start, label:"Start date", class:"form-control", html5: true %>
-      <%= f.input :date_end, label:"End date", class:"form-control", html5: true %>
-      <%#= f.input :image_url, class:"form-control" %>
-      <%= f.submit "Reserve this chair!", class:"btn btn-success mb-4 sm" %>
-    <% end %>
-  </div>
+    <button id="back-button" style="position: fixed; bottom: 20px; left: 20px; background-color: #4CAF50; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer; border-radius: 50px;">Go Back</button>
+
+    <div class="container w-50 shadow bg-white mt-5 p-3">
+        <%= simple_form_for [@chair, @booking], url: chair_bookings_path(@chair) do |f| %>
+            <%= f.input :date_start, label:"Start date", class:"form-control", html5: true %>
+            <%= f.input :date_end, label:"End date", class:"form-control", html5: true %>
+            <%#= f.input :image_url, class:"form-control" %>
+            <%= f.submit "Reserve this chair!", class:"btn btn-success mb-4 sm" %>
+        <% end %>
+    </div>
 </div>
+
+<script>
+    document.getElementById("back-button").addEventListener("click", function() {
+        window.history.back();
+    });
+</script>
