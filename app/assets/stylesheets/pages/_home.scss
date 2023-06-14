@@ -11,6 +11,10 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
 }
+.cards-container a {
+  text-decoration: none;
+  color: black;
+}
 .card-chair {
   overflow: hidden;
   background: white;
