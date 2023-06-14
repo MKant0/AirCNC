@@ -37,7 +37,7 @@ class ChairsController < ApplicationController
   def destroy
     authorize @chair
     @chair.destroy
-    redirect_to chair_path, status: :see_other
+    redirect_to chairs_path, status: :see_other
   end
 
   private

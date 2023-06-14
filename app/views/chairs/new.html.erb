@@ -1,12 +1,14 @@
 <div class="bgcolor">
   <div class="container w-50 shadow bg-white mt-5 p-3">
+    <button onclick="window.history.back();" style="position: fixed; bottom: 20px; left: 20px; background-color: #6c757d; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer; border-radius: 50px;">Go Back</button>
+
+    <!-- Formulario -->
     <%= simple_form_for @chair do |f| %>
       <%= f.input :name, label:"Chair name", class:"form-control", input_html: { maxlength: 20 } %>
       <%= f.input :description, as: :text, label:"Details", input_html: { maxlength: 300 } %>
       <%= f.input :address, label:"Address", class:"form-control" %>
       <%= f.input :price, label:"Price per Day", class:"form-control" %>
       <%= f.input :photos, as: :file, label:"Photos", input_html: { multiple: true } %>
-      <%#= f.input :image_url, class:"form-control" %>
       <%= f.submit "Post your chair!", class:"btn btn-success mb-4 sm" %>
     <% end %>
   </div>

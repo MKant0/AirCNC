@@ -6,20 +6,29 @@
 
 <div class="container mt-4">
   <div class="row">
-    <div class="col-6">
+    <div class="col-12">
       <h4>Choose a chair</h4>
-    </div>
-    <div class="col-6 text-end">
-      <%= link_to "Post your chair", new_chair_path, class:"btn btn-success btn-sm" %>
+      <%= link_to "Post your chair", new_chair_path, class:"btn btn-success btn-sm float-right" %>
     </div>
   </div>
-  <div class="row">
-    <% @chairs.each do |chair| %>
-<div class="col-4 mb-3">
-  <div class="card-category" style="background-image: url('<%= chair.url_image.present? ? cl_image_path(chair.url_image, :transformation => {:width => 300, :crop => "scale"}) : cl_image_path("aarnio_originals_ballchair_orange_03_1200x_tddq6l.jpg", :transformation => {:width => 300, :crop => "scale"}) %>'); background-size: contain; background-position: center; background-repeat: no-repeat; height: 200px;">
-    <span style="position: absolute; top: 10px; right: 10px; background-color: rgba(255, 255, 255, 0.5); padding: 5px;"><%= chair.name %></span>
-  </div>
+  <% @chairs.each do |chair| %>
+    <div class="row mt-4">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-4">
+                <div style="background-image: url('<%= chair.url_image.present? ? cl_image_path(chair.url_image, :transformation => {:width => 300, :crop => "scale"}) : cl_image_path("aarnio_originals_ballchair_orange_03_1200x_tddq6l.jpg", :transformation => {:width => 300, :crop => "scale"}) %>'); background-size: contain; background-position: center; background-repeat: no-repeat; height: 200px;"></div>
+              </div>
+              <div class="col-md-8">
+                <h5><%= chair.name %></h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>
-    <% end %>
-  </div>
-</div>
+
+<button onclick="window.history.back();" style="position: fixed; bottom: 20px; left: 20px; background-color: #4CAF50; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer; border-radius: 50px;">Go Back</button>
