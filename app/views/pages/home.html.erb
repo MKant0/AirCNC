@@ -12,11 +12,8 @@
 
     <% if user_signed_in? %>
       <p>Welcome, <%= current_user.email %>!</p>
-      <%= link_to 'My Bookings', bookings_path, class: 'btn btn-primary' %>
+      <%= link_to 'My Bookings', bookings_path, class: 'btn btn-success' %>
       <%= link_to 'List a Chair', new_chair_path, class: 'btn btn-secondary' %>
-    <% else %>
-      <p>Join us and start renting chairs today!</p>
-      <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-primary' %>
     <% end %>
 
     <div class="container mt-4">
@@ -25,40 +22,34 @@
           <h4>Chairs</h4>
         </div>
       </div>
-
-      <% if @chairs.any? %>
-        <div class="row">
-          <div class="col-4 mb-3">
-            <div class="card">
-              <%= cl_image_tag(@chairs.first.url_image, class: 'card-img-top') if @chairs.first.url_image.present? %>
-              <div class="card-body">
-                <h5 class="card-title"><%= @chairs.first.name %></h5>
-                <p class="card-text">Price: <%= @chairs.first.price %></p>
-                <%= link_to 'View Details', chair_path(@chairs.first), class: 'btn btn-primary' %>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="more-chairs" style="display: none;">
-          <% @chairs.drop(1).each do |chair| %>
-            <div class="col-4 mb-3">
-              <div class="card">
-                <%= cl_image_tag(chair.url_image, class: 'card-img-top') if chair.url_image.present? %>
-                <div class="card-body">
-                  <h5 class="card-title"><%= chair.name %></h5>
-                  <p class="card-text">Price: <%= chair.price %></p>
-                  <%= link_to 'View Details', chair_path(chair), class: 'btn btn-primary' %>
+      <!-- ui kit template -->
+        <div class="cards-container">
+          <% @chairs.each do  |chair| %>
+            <%= link_to chair_path(chair) do %>
+              <div class="card-chair">
+                <% chair.photos.each do |photo|%>
+                  <%= cl_image_tag photo.key, crop: :fill %>
+                <% end %>
+                <div class="card-chair-infos">
+                  <div>
+                    <h2 class="card-title"><%= chair.name %></h2>
+                  </div>
+                  <h2 class="card-chair-pricing">$<%= chair.price %></h2>
+                  <% if user_signed_in? %>
+                    <% if current_user.photo.attached? %>
+                      <%= image_tag current_user.photo, class: "avatar card-chair-user avatar-bordered" %>
+                    <% else %>
+                      <%= image_tag "avatar_chair.jpg", class: "avatar" %>
+                    <% end %>
+                  <% end %>
                 </div>
               </div>
-            </div>
+            <% end %>
           <% end %>
         </div>
-
         <div class="text-center mt-3">
-          <button id="show-more" class="btn btn-primary">Show more</button>
+          <button id="show-more" class="btn btn-success">Show more</button>
         </div>
-      <% end %>
     </div>
   </div>
 </div>
