@@ -1,0 +1,21 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h2>Edit Chair Listing</h2>
+
+            <%= simple_form_for @chair do |f| %>
+                <%= f.input :name, label: "Chair Name", class: "form-control", input_html: { maxlength: 50 } %>
+                <%= f.input :description, as: :text, label: "Description", class: "form-control", input_html: { maxlength: 300 } %>
+                <%= f.input :address, label: "Address", class: "form-control" %>
+                <%= f.input :price, label: "Price per Day ($)", class: "form-control" %>
+                <%= f.input :photos, as: :file, label: "Photos", input_html: { multiple: true } %>
+                <%= f.submit "Update Chair", class: "btn btn-primary mt-3" %>
+            <% end %>
+
+            <div class="mt-3">
+                <%= link_to "Cancel", @chair, class: "btn btn-secondary" %>
+            </div>
+        </div>
+    </div>
+</div>
+<button onclick="window.history.back();" style="position: fixed; bottom: 20px; left: 20px; z-index: 99;" class="btn btn-secondary">Go Back</button>
