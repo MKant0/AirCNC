@@ -48,3 +48,32 @@
   top: -20px;
   width: 40px;
 }
+
+.price-rating-rentbutton-div {
+  text-align: center;
+  border: 1px solid rgb(221, 221, 221);
+  padding: 2em;
+  border-radius: 1em;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
+}
+
+.photo-show img {
+  border-radius: 1em;
+}
+
+.price-chair-show {
+  font-size: large;
+}
+
+.button-chair-show a{
+border-radius: 1em
+}
+
+.button-chair-show a:hover {
+  color: white;
+  background-color: gray;
+}
+
+.message-above-user-buttons-chair-show {
+  color: lightgrey;
+}
