@@ -33,4 +33,8 @@ class BookingPolicy < ApplicationPolicy
   def update?
     record.user == user
   end
+
+  def download_information?
+    true
+  end
 end

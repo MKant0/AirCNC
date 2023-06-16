@@ -1,7 +1,10 @@
 class BookingsController < ApplicationController
+  skip_after_action :verify_authorized, only: [:download_information]
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
   before_action :set_chair, only: [:new, :create]
-# al ser la ruta nesteada con chair, usamos el chair_id para encontrar la silla
+
+  # al ser la ruta nesteada con chair, usamos el chair_id para encontrar la silla
+
   def index
     @bookings = policy_scope(Booking)
   end
@@ -47,6 +50,14 @@ class BookingsController < ApplicationController
     authorize @booking
     @booking.destroy
     redirect_to bookings_path, status: :see_other
+  end
+
+  def download_information
+    @booking = Booking.find(params[:booking][:id])
+    respond_to do |format|
+      format.html
+      format.pdf { render pdf: "Id afiliado: ", template: 'bookings/pdf' }
+    end
   end
 
   private
