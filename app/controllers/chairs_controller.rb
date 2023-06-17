@@ -20,7 +20,7 @@ class ChairsController < ApplicationController
     if @chair.save
       redirect_to chair_path(@chair)
     else
-      render :new, status: :unporcessable_entity
+      render :new, status: :unprocessable_entity
     end
   end
 
