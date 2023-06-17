@@ -49,7 +49,7 @@ class BookingsController < ApplicationController
   def destroy
     authorize @booking
     @booking.destroy
-    redirect_to bookings_path, status: :see_other
+    redirect_to bookings_path, notice: 'Booking was successfully deleted.'
   end
 
   def download_information
