@@ -1,4 +1,4 @@
-<div class="bg-color p-4">
+<div class="bg-color p-4 mt-4">
   <div class="container my-5 shadow p-3 w-75 card-color text-center">
     <h1>Welcome to AirCnC</h1>
     <p>Rent chairs for any occasion!</p>
@@ -17,7 +17,7 @@
     <% end %>
   </div>
 
-    <div class="container my-5 shadow p-3 w-75 card-color text-center">
+    <div class="container my-5 shadow p-3 w-75 card-color text-center mt-4">
       <div class="row">
         <div class="col-12">
           <h4>Chairs</h4>
@@ -35,12 +35,12 @@
                   <div>
                     <h2 class="card-title"><%= chair.name %></h2>
                   </div>
-                  <h2 class="card-chair-pricing">$<%= chair.price %></h2>
+                  <h2 class="card-chair-pricing mt-3">$<%= chair.price %></h2>
                   <% if user_signed_in? %>
                     <% if chair.user.photo.attached? %>
                       <%= image_tag chair.user.photo, class: "avatar card-chair-user avatar-bordered" %>
                     <% else %>
-                      <%= image_tag "avatar_chair.jpg", class: "avatar" %>
+                      <%= image_tag "avatar_chair.jpg", class: "avatar card-chair-user avatar-bordered" %>
                     <% end %>
                   <% end %>
                 </div>
