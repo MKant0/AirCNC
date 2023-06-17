@@ -1,7 +1,17 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: #ffffff;
-  position: relative;
+
+  // transition de la navbar con stimulus/ lecture de LeWagon
+  background-color: transparent;
+  transition: 0.5s background-color ease;
+
+  // position: relative; // para que el navbar quede fixed en el codigo de JS vanilla
+}
+
+.navbar-lewagon-white {
+   // transition de la navbar con stimulus/ lecture de LeWagon
+  background-color: white;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -20,3 +30,9 @@
   box-sizing: border-box;
   text-decoration: none;
 }
+
+// para que el navbar quede fixed en el codigo de JS vanilla
+
+// .navbar.fixed-top {
+//   position: fixed;
+// }
