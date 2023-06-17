@@ -51,3 +51,19 @@
     </div>
   </div>
 </div>
+
+
+<%# Codigo De Vanilla JS para fixed navbar %>
+<%# <script>
+  document.addEventListener("scroll", function () {
+  const navbar = document.querySelector(".navbar-lewagon");
+  const navbarHeight = 100;
+  const distanceFromTop = Math.abs(
+    document.body.getBoundingClientRect().top
+  );
+  if (window.scrollY > 0) navbar.classList.add("fixed-top");
+  else navbar.classList.remove("fixed-top");
+  console.log(window.scrollY)
+  console.log(window.innerHeight)
+});
+</script> %>

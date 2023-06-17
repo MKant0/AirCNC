@@ -1,5 +1,5 @@
 <%= stylesheet_link_tag 'bookings' %>
-<div class="bookings-container">
+<div class="bookings-container mt-5">
     <h1 class="bookings-title">Here are your upcoming bookings</h1>
 
     <div class="bookings-cards">
@@ -25,13 +25,4 @@
         <% end %>
     </div>
 
-    <div class="go-back-button-container"
-        <button id="back-button" class="go-back-button">Go Back</button>
-    </div>
-</div>
-
-<script>
-    document.getElementById("back-button").addEventListener("click", function() {
-        window.history.back();
-    });
-</script>
+    <%= link_to "Go Back", root_path, class:"btn btn-success"%>
