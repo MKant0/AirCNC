@@ -37,8 +37,8 @@
                   </div>
                   <h2 class="card-chair-pricing">$<%= chair.price %></h2>
                   <% if user_signed_in? %>
-                    <% if current_user.photo.attached? %>
-                      <%= image_tag current_user.photo, class: "avatar card-chair-user avatar-bordered" %>
+                    <% if chair.user.photo.attached? %>
+                      <%= image_tag chair.user.photo, class: "avatar card-chair-user avatar-bordered" %>
                     <% else %>
                       <%= image_tag "avatar_chair.jpg", class: "avatar" %>
                     <% end %>
