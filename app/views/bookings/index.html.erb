@@ -25,13 +25,4 @@
         <% end %>
     </div>
 
-    <div class="go-back-button-container"
-        <button id="back-button" class="go-back-button">Go Back</button>
-    </div>
-</div>
-
-<script>
-    document.getElementById("back-button").addEventListener("click", function() {
-        window.history.back();
-    });
-</script>
+    <%= link_to "Go Back", root_path, class:"btn btn-success"%>
