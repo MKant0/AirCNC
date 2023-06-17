@@ -36,6 +36,10 @@ class ApplicationPolicy
     false
   end
 
+  def download_information?
+    true
+  end
+
   class Scope
     def initialize(user, scope)
       @user = user

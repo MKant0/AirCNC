@@ -13,6 +13,8 @@
     <%# Fonts  Below %>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;800&family=Press+Start+2P&family=Red+Hat+Mono&family=Roboto:wght@100;500&family=VT323&display=swap" rel="stylesheet">
+    <%= wicked_pdf_stylesheet_link_tag "pdf" -%>
+    <%= wicked_pdf_javascript_include_tag "number_pages" %>
   </head>
 
   <body><%= render "shared/navbar" %>

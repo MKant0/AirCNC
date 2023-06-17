@@ -8,7 +8,7 @@
       <%= f.input :description, as: :text, label:"Details", input_html: { maxlength: 300 } %>
       <%= f.input :address, label:"Address", class:"form-control" %>
       <%= f.input :price, label:"Price per Day", class:"form-control" %>
-      <%= f.input :photos, as: :file, label:"Photos", input_html: { multiple: true } %>
+      <%= f.input :photos, as: :file, label:"Photos", required: true, input_html: { multiple: true } %>
       <%= f.submit "Post your chair!", class:"btn btn-success mb-4 sm" %>
     <% end %>
   </div>
