@@ -38,11 +38,6 @@ chair2 = Chair.new(name: "Silla de Campo", address: "Calle Santa Maria 5, Cherqu
 chair2.photos.attach(io: file, filename: "silla2.png", content_type: "image/png")
 chair2.save!
 
-file = URI.open("https://images.unsplash.com/photo-1580480055273-228ff5388ef8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80")
-chair3 = Chair.new(name: "Silla Hermosa en Santiago", address: "Pasaje Los Gladiolos 6320, Santiago, Chile", rating: "5", description: "Esta silla es super comoda", price: "500", user: user)
-chair3.photos.attach(io: file, filename: "silla3.png", content_type: "image/png")
-chair3.save!
-
 puts "creating bookings"
 booking = Booking.new(date_start: "2023-06-10", date_end: "2023-06-21", chair: chair, user: user)
 booking.save!
