@@ -1,22 +1,23 @@
 <div class="bg-color p-4">
-  <div class="container shadow p-3 w-75 card-color text-center">
+  <div class="container my-5 shadow p-3 w-75 card-color text-center">
     <h1>Welcome to AirCnC</h1>
     <p>Rent chairs for any occasion!</p>
 
-    <div class="search-bar p-3">
+    <!-- <div class="search-bar p-3">
       <%= simple_form_for :search, url: chairs_path, method: :get, html: { class: 'form-inline' } do |f| %>
         <%= f.input :query, label: false, input_html: { placeholder: 'Search for chairs...', class: 'form-control' } %>
         <%= f.button :submit, 'Search', class: 'btn btn-success ml-2' %>
       <% end %>
-    </div>
+    </div> -->
 
     <% if user_signed_in? %>
       <p>Welcome, <%= current_user.email %>!</p>
-      <%= link_to 'My Bookings', bookings_path, class: 'btn btn-success' %>
-      <%= link_to 'List a Chair', new_chair_path, class: 'btn btn-secondary' %>
+      <!-- <%= link_to 'My Bookings', bookings_path, class: 'btn btn-success' %>
+      <%= link_to 'List a Chair', new_chair_path, class: 'btn btn-secondary' %> -->
     <% end %>
+  </div>
 
-    <div class="container mt-4">
+    <div class="container my-5 shadow p-3 w-75 card-color text-center">
       <div class="row">
         <div class="col-12">
           <h4>Chairs</h4>

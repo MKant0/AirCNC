@@ -1,7 +1,7 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar fixed-top navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
     <%= link_to "#", class: "navbar-brand" do %>
-      <%= image_tag ("logo01") %>
+    <%= image_tag ("logo01") %>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,16 +11,16 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-          <li class="nav-item active">
+          <li class="nav-item-font active mt-1">
             <%= link_to "Home", root_path, class: "nav-link" %>
           </li>
-          <li class="nav-item active">
+          <li class="btn btn-outline-success btn-sm nav-item mx-1">
             <%= link_to "New Post", new_chair_path, class: "nav-link"%>
           </li>
-          <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item dropdown">
+          <b><li class="nav-item active mt-1 mx-1" id="rch">
+            <%= link_to "Rent a chair", root_path, class: "nav-link" %>
+          </li></b>
+          <li class="nav-item-dropdown dropdown">
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <% if current_user.photo.attached? %>
               <%= image_tag current_user.photo, class: "avatar", alt: "dropdown menu" %>
