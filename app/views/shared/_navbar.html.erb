@@ -36,11 +36,16 @@
             </div>
           </li>
         <% else %>
-          <li class="nav-item d-flex space-between m-1 p-3">
-            <%= link_to "Post a chair", user_session_path, class: "nav-link btn btn-light" %>
-            <%= link_to "Sign Up", new_user_registration_path, class: "nav-link btn btn-light"%>
-            <%= link_to "Login", user_session_path, class: "nav-link btn btn-light" %>
+          <li class="nav-item-font mt-1">
+            <%= link_to "Post a chair", user_session_path, class: "nav-link" %>
           </li>
+          <li class="btn btn-outline-success btn-sm nav-item mx-1">
+            <%= link_to "Sign Up", new_user_registration_path, class: "nav-link"%>
+          </li>
+          <b><li class="nav-item active mt-1 mx-1" id="rch">
+            <%= link_to "Login", user_session_path, class: "nav-link" %>
+            </li>
+          </b>
         <% end %>
       </ul>
     </div>
