@@ -17,53 +17,39 @@
     <% end %>
   </div>
 
-    <div class="container my-5 shadow p-3 w-75 card-color text-center mt-4">
+  <div class="container my-5 shadow p-3 w-75 card-color text-center mt-4">
       <div class="row">
         <div class="col-12">
           <h4>Chairs</h4>
         </div>
       </div>
       <!-- ui kit template -->
-        <div class="cards-container">
-          <% @chairs.each do  |chair| %>
-            <%= link_to chair_path(chair) do %>
-              <div class="card-chair">
-                <% chair.photos.each do |photo|%>
-                  <%= cl_image_tag photo.key, crop: :fill %>
-                <% end %>
-                <div class="card-chair-infos">
-                  <div>
-                    <h2 class="card-title"><%= chair.name %></h2>
-                  </div>
-                  <h2 class="card-chair-pricing mt-3">$<%= chair.price %></h2>
-                  <% if user_signed_in? %>
-                    <% if chair.user.photo.attached? %>
-                      <%= image_tag chair.user.photo, class: "avatar card-chair-user avatar-bordered" %>
-                    <% else %>
-                      <%= image_tag "avatar_chair.jpg", class: "avatar card-chair-user avatar-bordered" %>
-                    <% end %>
-                  <% end %>
+      <div class="cards-container">
+        <% @chairs.each do |chair| %>
+          <%= link_to chair_path(chair) do %>
+            <div class="card-chair">
+              <% chair.photos.each do |photo|%>
+                <%= cl_image_tag photo.key, crop: :fill %>
+              <% end %>
+              <div class="card-chair-infos">
+                <div>
+                  <h2 class="card-title"><%= chair.name %></h2>
                 </div>
+                <h2 class="card-chair-pricing mt-3">$<%= chair.price %></h2>
+                <% if user_signed_in? %>
+                  <% if chair.user.photo.attached? %>
+                    <%= image_tag chair.user.photo, class: "avatar card-chair-user avatar-bordered" %>
+                  <% else %>
+                    <%= image_tag "avatar_chair.jpg", class: "avatar card-chair-user avatar-bordered" %>
+                  <% end %>
+                <% end %>
               </div>
-            <% end %>
+            </div>
           <% end %>
-        </div>
-        <div class="text-center mt-3">
-          <button id="show-more" class="btn btn-success">Show more</button>
-        </div>
-    </div>
+        <% end %>
+      </div>
+      <div class="text-center mt-3">
+        <button id="show-more" class="btn btn-success">Show more</button>
+      </div>
   </div>
 </div>
-
-<script>
-  document.getElementById("show-more").addEventListener("click", function() {
-    var moreChairs = document.querySelector(".more-chairs");
-    if (moreChairs.style.display === "none") {
-      moreChairs.style.display = "block";
-      this.innerHTML = "Show less";
-    } else {
-      moreChairs.style.display = "none";
-      this.innerHTML = "Show more";
-    }
-  });
-</script>
