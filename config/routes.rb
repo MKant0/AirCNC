@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   resources :pages
   # Defines the root path route ("/")
   # root "articles#index"
+
+  get 'bookings/download_information', to: 'bookings#download_information', as: 'download_information'
+
   resources :chairs do
     resources :bookings, only: [:new, :create]
   end
